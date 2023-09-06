@@ -1,0 +1,13 @@
+<div class="container mt-5">
+  <% if @users.empty? %>
+    <p>There are no users for now</p>
+  <% end %>
+  <% @users.each do |user| %>
+    <%= link_to user.name, user_path(user), class: "text-decoration-none" %>
+    <%= render 'shared/user_card', user: user %>
+    </a>
+  <% end %>
+  <% if @current_user %>
+    <%= link_to 'Add a new post', new_user_post_path(user_id: @current_user.id), class: "btn btn-primary" %>
+  <% end %>
+</div>
